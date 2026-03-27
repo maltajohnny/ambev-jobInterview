@@ -1,8 +1,6 @@
 # Ambev - Job Interview
 
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ambev_logo.svg/1280px-Ambev_logo.svg.png" alt="Ambev Logo" width="320" />
-</p>
+![Logo da ambev](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ambev_logo.svg/1280px-Ambev_logo.svg.png)
 
 Projeto de automacao de testes com Cypress para o desafio tecnico da Ambev, cobrindo cenarios E2E, API e Integracao, com separacao por perfil de acesso (`User` e `Admin`).
 
@@ -68,6 +66,13 @@ cypress/
 
 - [x] Criacao via API e validacao no Front
 - [x] Criacao via Front e validacao na API
+- [x] Fluxo com limpeza de massa de teste ao final
+- [x] Validacoes cruzadas com contexto de perfil admin
+
+**Cenarios de integracao implementados**
+- API -> Front: cria usuario por API e valida presenca em `/admin/listarusuarios`.
+- Front -> API: cria produto no front admin e valida existencia em `GET /produtos`.
+- Cleanup: remove os dados criados durante os cenarios para evitar sujeira entre execucoes.
 
 ## Como rodar localmente
 
@@ -118,6 +123,15 @@ A pipeline recebe credenciais por secrets:
 
 - [x] Neste repositorio de entrevista, o arquivo de exemplo foi mantido no versionamento para facilitar reproducao por avaliadores.
 - [x] Em um cenario de projeto real, o recomendado e **nao versionar** arquivos de credenciais e usar apenas variaveis seguras/secrets.
+
+## Documento consolidado de entregas
+
+O arquivo `PROJECT-CHANGELOG.md` centraliza o detalhamento de tudo que foi entregue no projeto:
+
+- titulos de cada etapa/PR;
+- descricao funcional por modulo (User, Admin, API e Integracao);
+- checklist de cobertura por etapa;
+- rastreabilidade do que foi implementado do inicio ao fim da entrega.
 
 ## Observacoes
 
