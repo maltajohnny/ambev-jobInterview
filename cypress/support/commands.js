@@ -24,7 +24,7 @@ Cypress.Commands.add('ensureAdminSessionForE2E', (overrides) => {
 
 /**
  * Login E2E: verifica na API se o usuário existe; se não, cadastra na web com USER_* do env
- * e então autentica na UI. Usa os mesmos dados de `cypress.env.json` / `cypress.env.example.json`.
+ * e então autentica na UI. Usa variáveis de ambiente `USER_*` (local ou secrets da pipeline).
  */
 Cypress.Commands.add('login', (overrides = {}) => {
   ensureUserSessionForE2E(overrides);

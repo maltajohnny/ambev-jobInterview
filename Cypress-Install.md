@@ -12,4 +12,5 @@ Implementa a base do projeto de automacao com Cypress em JavaScript, incluindo c
 - [x] Configurar `support/e2e.js` e `support/commands.js`
 - [x] Adicionar suporte a schema validation e plugin de API
 - [x] Preparar workflow de CI para execucao Cypress
-- [x] Adicionar arquivo de exemplo de ambiente `cypress.env.example.json`
+- [x] Configurar pipeline para receber usuarios via GitHub Secrets (`USER_*` e `ADMIN_USER_*`)
+- [x] Remover versionamento de arquivo de exemplo de ambiente para evitar exposicao indevida
