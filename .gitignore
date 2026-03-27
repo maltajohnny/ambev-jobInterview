@@ -4,5 +4,4 @@ cypress/videos/
 cypress/screenshots/
 cypress/downloads/
 cypress.env.json
-cypress.env.example.json
 cypress.env.chalange.json
