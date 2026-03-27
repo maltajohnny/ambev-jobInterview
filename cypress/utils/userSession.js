@@ -10,18 +10,39 @@ const RegisterPage = require('../support/pages/RegisterPage');
  * @param {string} [overrides.password]
  */
 function getCredentials(overrides = {}) {
+  const nome = overrides.nome ?? Cypress.env('USER_NAME') ?? 'ambev-user';
+  const email = overrides.email ?? Cypress.env('USER_EMAIL');
+  const password = overrides.password ?? Cypress.env('USER_PASSWORD');
+
+  if (!email || !password) {
+    throw new Error(
+      'Missing USER_EMAIL/USER_PASSWORD in Cypress environment (local env file or CI secrets).',
+    );
+  }
+
   return {
-    nome: overrides.nome ?? Cypress.env('USER_NAME'),
-    email: overrides.email ?? Cypress.env('USER_EMAIL'),
-    password: overrides.password ?? Cypress.env('USER_PASSWORD'),
+    nome,
+    email,
+    password,
   };
 }
 
 function getAdminCredentials(overrides = {}) {
+  const nome =
+    overrides.nome ?? Cypress.env('ADMIN_USER_NAME') ?? 'ambev-admin';
+  const email = overrides.email ?? Cypress.env('ADMIN_USER_EMAIL');
+  const password = overrides.password ?? Cypress.env('ADMIN_USER_PASSWORD');
+
+  if (!email || !password) {
+    throw new Error(
+      'Missing ADMIN_USER_EMAIL/ADMIN_USER_PASSWORD in Cypress environment (local env file or CI secrets).',
+    );
+  }
+
   return {
-    nome: overrides.nome ?? Cypress.env('ADMIN_USER_NAME'),
-    email: overrides.email ?? Cypress.env('ADMIN_USER_EMAIL'),
-    password: overrides.password ?? Cypress.env('ADMIN_USER_PASSWORD'),
+    nome,
+    email,
+    password,
   };
 }
 
