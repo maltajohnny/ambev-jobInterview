@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["quantidade", "carrinhos"],
+  "properties": {
+    "quantidade": { "type": "integer" },
+    "carrinhos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["produtos", "precoTotal", "quantidadeTotal", "idUsuario", "_id"],
+        "properties": {
+          "_id": { "type": "string" },
+          "idUsuario": { "type": "string" },
+          "precoTotal": { "type": "integer" },
+          "quantidadeTotal": { "type": "integer" },
+          "produtos": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["idProduto", "quantidade", "precoUnitario"],
+              "properties": {
+                "idProduto": { "type": "string" },
+                "quantidade": { "type": "integer" },
+                "precoUnitario": { "type": "integer" }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
