@@ -1,0 +1,28 @@
+name: Cypress
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Copy env (pipeline)
+        run: cp cypress.env.example.json cypress.env.json
+
+      - name: Cypress (pipeline)
+        run: npm run cypress:pipeRun
